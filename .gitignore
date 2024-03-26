@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+gcpvision.json
+src/main/resources/application.properties

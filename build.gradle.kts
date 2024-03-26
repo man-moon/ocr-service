@@ -23,6 +23,10 @@ repositories {
 extra["springCloudVersion"] = "2023.0.0"
 
 dependencies {
+
+	//google cloud vision
+	implementation("org.springframework.cloud:spring-cloud-gcp-starter-vision")
+
 	//kotlin
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
 
@@ -72,6 +76,7 @@ dependencyManagement {
 	imports {
 		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
 		mavenBom("io.awspring.cloud:spring-cloud-aws-dependencies:3.0.1")
+		mavenBom("org.springframework.cloud:spring-cloud-gcp-dependencies:1.2.8.RELEASE")
 	}
 }
 
