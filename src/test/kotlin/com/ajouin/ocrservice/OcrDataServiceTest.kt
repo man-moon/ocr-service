@@ -1,6 +1,7 @@
 package com.ajouin.ocrservice
 
 import com.ajouin.ocrservice.dto.OcrRequest
+import com.ajouin.ocrservice.service.OcrDataService
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
@@ -9,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class OcrDataProcessorTest @Autowired constructor(
-    private val ocrDataProcessor: OcrDataProcessor,
+class OcrDataServiceTest @Autowired constructor(
+    private val ocrDataService: OcrDataService,
 ) {
 
     @Test
@@ -25,7 +26,7 @@ class OcrDataProcessorTest @Autowired constructor(
             )
         )
 
-        val ocrResponse = ocrDataProcessor.extractText(ocrRequest)
+        val ocrResponse = ocrDataService.extractText(ocrRequest)
         assertThat(ocrResponse.id).isEqualTo(0L)
         assertThat(ocrResponse.content.size).isEqualTo(2)
         assertThat(ocrResponse.content[0]).isNotBlank()

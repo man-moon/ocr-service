@@ -1,25 +1,21 @@
-package com.ajouin.ocrservice
+package com.ajouin.ocrservice.service
 
 import com.ajouin.ocrservice.dto.OcrRequest
 import com.ajouin.ocrservice.dto.OcrResponse
 import com.ajouin.ocrservice.event.OcrResponseCreatedEvent
 import com.ajouin.ocrservice.publisher.OcrResponseEventPublisher
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.google.cloud.vision.v1.ImageSource
-import io.awspring.cloud.sqs.operations.SqsTemplate
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import org.springframework.cloud.gcp.vision.CloudVisionTemplate
 import org.springframework.core.io.ResourceLoader
 import org.springframework.stereotype.Service
-import java.util.concurrent.ConcurrentHashMap
 
 @Service
-class OcrDataProcessorImpl(
+class OcrDataServiceImpl(
     private val cloudVisionTemplate: CloudVisionTemplate,
     private val resourceLoader: ResourceLoader,
     private val ocrResponseEventPublisher: OcrResponseEventPublisher,
-): OcrDataProcessor {
+): OcrDataService {
 
     override suspend fun processOcrRequest(request: OcrRequest) {
 

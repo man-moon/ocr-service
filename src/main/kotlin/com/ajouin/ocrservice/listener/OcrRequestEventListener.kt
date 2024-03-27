@@ -1,7 +1,6 @@
 package com.ajouin.ocrservice.listener
 
-import com.ajouin.ocrservice.OcrDataProcessor
-import com.ajouin.ocrservice.config.ObjectMapperConfig
+import com.ajouin.ocrservice.service.OcrDataService
 import com.ajouin.ocrservice.dto.OcrRequest
 import com.ajouin.ocrservice.logger
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class OcrRequestEventListener(
-    private val ocrDataProcessor: OcrDataProcessor,
+    private val ocrDataService: OcrDataService,
     private val objectMapper: ObjectMapper,
 ) {
 
@@ -20,6 +19,6 @@ class OcrRequestEventListener(
         logger.info { "Received message: $message" }
         val request: OcrRequest = objectMapper.readValue(message, OcrRequest::class.java)
 
-        ocrDataProcessor.processOcrRequest(request)
+        ocrDataService.processOcrRequest(request)
     }
 }

@@ -1,9 +1,9 @@
-package com.ajouin.ocrservice
+package com.ajouin.ocrservice.service
 
 import com.ajouin.ocrservice.dto.OcrRequest
 import com.ajouin.ocrservice.dto.OcrResponse
 
-interface OcrDataProcessor {
+interface OcrDataService {
 
     suspend fun processOcrRequest(request: OcrRequest)
     suspend fun extractText(request: OcrRequest): OcrResponse
