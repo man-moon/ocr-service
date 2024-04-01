@@ -1,6 +1,8 @@
 package com.ajouin.ocrservice.dto
 
+import java.util.UUID
+
 data class OcrRequest(
-    val id: Long,
+    val id: UUID,
     val imageUrl: List<String>,
 )
