@@ -17,7 +17,7 @@ class OcrDataServiceImpl(
     private val ocrResponseEventPublisher: OcrResponseEventPublisher,
 ): OcrDataService {
 
-    override suspend fun processOcrRequest(request: OcrRequest) {
+    override fun processOcrRequest(request: OcrRequest) {
 
         val result = extractText(request)
 
@@ -26,13 +26,11 @@ class OcrDataServiceImpl(
         )
     }
 
-    override suspend fun extractText(request: OcrRequest): OcrResponse = coroutineScope {
+    override fun extractText(request: OcrRequest): OcrResponse {
         val results: List<String> = request.imageUrl.map { url ->
-            async {
-                cloudVisionTemplate.extractTextFromImage(resourceLoader.getResource(url))
-            }
-        }.map { it.await() }
+            cloudVisionTemplate.extractTextFromImage(resourceLoader.getResource(url))
+        }
 
-        OcrResponse(request.id, results)
+        return OcrResponse(request.id, results)
     }
 }

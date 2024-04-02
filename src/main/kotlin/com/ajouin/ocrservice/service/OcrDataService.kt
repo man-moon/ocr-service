@@ -5,6 +5,6 @@ import com.ajouin.ocrservice.dto.OcrResponse
 
 interface OcrDataService {
 
-    suspend fun processOcrRequest(request: OcrRequest)
-    suspend fun extractText(request: OcrRequest): OcrResponse
+    fun processOcrRequest(request: OcrRequest)
+    fun extractText(request: OcrRequest): OcrResponse
 }
