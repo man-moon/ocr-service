@@ -17,7 +17,7 @@ class OcrDataServiceTest @Autowired constructor(
 
     @Test
     @DisplayName("이미지의 내용이 텍스트로 반환")
-    fun processOcrRequestTest(): Unit = runBlocking {
+    fun processOcrRequestTest() {
 
         val ocrRequest = OcrRequest(
             id = UUID.randomUUID(),
