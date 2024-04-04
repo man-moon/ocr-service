@@ -23,6 +23,6 @@ class OcrResponseEventPublisher(
                 .payload(messagePayload)
         }
 
-        logger.info { "Message sent with payload $event" }
+        logger.info { "Message sent with payload ${event.id}" }
     }
 }
