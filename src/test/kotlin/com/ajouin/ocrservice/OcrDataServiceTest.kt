@@ -24,8 +24,8 @@ class OcrDataServiceTest @Autowired constructor(
         val ocrRequest = OcrRequest(
             id = UUID.randomUUID(),
             imageUrl = listOf(
-                "https://ajouin-notice-content.s3.ap-northeast-2.amazonaws.com/fcc347e6-154f-4791-acfc-f53f4e7c3666",
-                "https://ajouin-notice-content.s3.ap-northeast-2.amazonaws.com/f812b1be-60a3-48b3-8450-effa98930ffe"
+                "https://ajouin-notice-content.s3.ap-northeast-2.amazonaws.com/034bb235-6914-4dae-970c-2107f7953485",
+                "https://ajouin-notice-content.s3.ap-northeast-2.amazonaws.com/03cc17d5-3cd5-4bb6-a8b5-1ccbf89ce9f1"
             )
         )
 
