@@ -33,10 +33,10 @@ dependencies {
 	//spring
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
 
 	//spring cloud
 	implementation("org.springframework.cloud:spring-cloud-starter-bus-amqp")
@@ -52,10 +52,6 @@ dependencies {
 	//slack
 	implementation("com.slack.api:slack-api-client:1.32.1")
 
-	//database
-	runtimeOnly("com.h2database:h2")
-	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
-	implementation("org.springframework.boot:spring-boot-starter-webflux")
 
 	//logging
 	implementation("io.github.oshai:kotlin-logging-jvm:5.1.1")
@@ -65,10 +61,6 @@ dependencies {
 	implementation("io.awspring.cloud:spring-cloud-aws-starter-s3")
 	implementation("io.awspring.cloud:spring-cloud-aws-starter-sqs")
 
-	// test
-	testImplementation("org.testcontainers:localstack")
-	testImplementation("org.testcontainers:junit-jupiter")
-	testImplementation("org.awaitility:awaitility")
 }
 
 dependencyManagement {
@@ -89,3 +81,4 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
